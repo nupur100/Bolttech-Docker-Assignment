@@ -1,0 +1,43 @@
+version: "3"
+services:
+  backend:
+    build: ./backend
+    command: python app.py
+    environment:
+      - AWS_ACCESS_KEY_ID=dummy
+      - AWS_SECRET_ACCESS_KEY=dummy
+      - AWS_REGION=ap-southeast-2
+    ports:
+      - "8089:8089"
+    restart: always
+    depends_on:
+      - dynamodb
+    links:
+      - dynamodb
+
+  frontend:
+    build: ./frontend
+    links:
+      - backend
+    command: node server.js
+    ports:
+      - "8084:8084"
+    environment:
+      APP_URL: http://backend:8089
+    depends_on:
+      - backend
+    restart: always
+
+  dynamodb:
+    image: amazon/dynamodb-local:latest
+    ports:
+      - "8000:8000"
+    command: ["-jar", "DynamoDBLocal.jar", "-sharedDb", "-inMemory"]
+
+
+
+
+
+
+
+
