@@ -24,8 +24,10 @@
             };
         }
         componentDidMount () {
-                console.log(<%= clients %>);
-                this.setState({ tableData: <%= clients %>});
+                var ss = `<%= clients %>`;
+                var pp = JSON.stringify(ss);
+                console.log(pp);
+                this.setState({ tableData: [pp]});
         }
         render () {
             const { tableData } = this.state;
@@ -97,6 +99,10 @@
 </body>
 </body>
 </html>
+
+
+
+
 
 
 
