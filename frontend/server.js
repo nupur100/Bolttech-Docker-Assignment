@@ -14,14 +14,16 @@ app.get('/', (req, res) => {
           if (error) {
               return res.send({ error });
           }
-          console.log(clientsData)
+//          clientsData['clients'] = [ { clientName: 'Alex' } ]
           console.log(clientsData['clients'])
-          console.log({clients: clientsData['clients']})
-          res.render('index', clientsData['clients']);
-
+          res.render('index', {clients: clientsData['clients']});
       });
 });
 //[ { clientName: { S: 'Alex' } } ] == clientsData['clients']
+//frontend_1  | [ { clientName: { S: 'Alex' } },
+//frontend_1  |   { clientName: { S: 'test-From-postman' } } ] = clientsData['clients']
 
 app.listen(port, () => console.log(`Node app is listening at http://localhost:${port}`))
+
+
 
