@@ -24,10 +24,9 @@
             };
         }
         componentDidMount () {
-                var ss = `<%= clients %>`;
-                var pp = JSON.stringify(ss);
-                console.log(pp);
-                this.setState({ tableData: [pp]});
+                var userFromServer =<%-JSON.stringify(clients)%>
+                console.log(userFromServer);
+                this.setState({ tableData: userFromServer});
         }
         render () {
             const { tableData } = this.state;
@@ -56,36 +55,14 @@
 <div id="add"></div>
 <script type="text/babel">
     class NameForm extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = {value: ''};
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-      }
-
-      handleChange(event) {
-        this.setState({value: event.target.value});
-      }
-      handleSubmit(event) {
-            axios.post('http://localhost:8089/clients/add_clients', {
-               clientName: this.state.value,
-              })
-             .then(function (response) {
-               console.log(response);
-             })
-            alert('Client name was submitted: ' + this.state.value);
-            event.preventDefault();
-      }
-
       render() {
         return (
-          <form onSubmit={this.handleSubmit}>
+          <form name="form1" method="POST" action="/">
             <br />
             <h2>Add more Clients:</h2>
-
             <label>
               Name:
-              <input type="text" id="valueText" placeholder="Enter Client Name here" value={this.state.value} onChange={this.handleChange} />
+              <input type="text" name="clientname" id="valueText" placeholder="Enter Client Name here"/>
             </label>
             <input type="submit" id= "submitBtn" value="Submit" />
           </form>
@@ -99,10 +76,3 @@
 </body>
 </body>
 </html>
-
-
-
-
-
-
-
