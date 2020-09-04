@@ -9,7 +9,7 @@ let ejs = require('ejs');
 const url = process.env.APP_URL
 const port = 8084;
 
-app.set('views', './views')
+app.set('views', './src')
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
