@@ -1,6 +1,6 @@
 const express = require('express');
 const request = require('request');
-const clients = require('./libs/clients');
+const clients = require('./utils/clients');
 var parser = require('body-parser');
 const app = express();
 app.use(parser.urlencoded({ extended: false }))
@@ -9,7 +9,7 @@ let ejs = require('ejs');
 const url = process.env.APP_URL
 const port = 8084;
 
-app.set('views', './src')
+app.set('views', './views')
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
@@ -35,12 +35,7 @@ app.post('/name', (req, res) => {
                 }
             }
         );
-      clients((error, clientsData) => {
-          if (error) {
-              return res.send({ error });
-          }
-          res.render('index', {clients: clientsData['clients'], url: url});
-      });
+        res.redirect('/');
 });
 
 app.listen(port, () => console.log(`Node app is listening at http://localhost:${port}`))
