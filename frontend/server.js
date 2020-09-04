@@ -1,6 +1,6 @@
 const express = require('express');
 const request = require('request');
-const clients = require('./utils/clients');
+const clients = require('./libs/clients');
 var parser = require('body-parser');
 const app = express();
 app.use(parser.urlencoded({ extended: false }))
@@ -9,7 +9,7 @@ let ejs = require('ejs');
 const url = process.env.APP_URL
 const port = 8084;
 
-app.set('views', './views')
+app.set('views', './src')
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
