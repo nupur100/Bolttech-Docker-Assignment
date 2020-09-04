@@ -5,8 +5,6 @@ var parser = require('body-parser');
 const app = express();
 app.use(parser.urlencoded({ extended: false }))
 app.use(parser.json())
-
-//const add_clients = require('./utils/add_clients');
 let ejs = require('ejs');
 const url = process.env.APP_URL
 const port = 8084;
