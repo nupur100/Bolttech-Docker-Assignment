@@ -1,18 +1,18 @@
 # Bolttech-Docker-Assignment
 
-# Pre-requisites
+# Pre-requisites:
 
 ```
 docker
 docker-compose
 ```
 
-# Application configuration
+# Application configurations:
 
 ```
 Backend is written in Python (RESTful API were created using Flask)
 Frontend is written in NodeJS and ReactJS
-For Database: Integrated DynamoDB Local (On port 8000) by using a docker image with all the DynamoDB local dependencies and necessary configuration built in.
+For Database: Integrated amazon DynamoDB Local (On port 8000) by using a docker image with all the DynamoDB local dependencies and necessary configuration built in.
 
 ```
 
@@ -37,4 +37,4 @@ docker-compose up
 http://localhost:8084 
 ```
 
-**Note: This Application is also running on my Test server -> http://54.66.87.64:8084**
+***Note: This Application is also running on my Test server -> http://54.66.87.64:8084***
