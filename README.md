@@ -40,8 +40,9 @@ http://localhost:8084
 ## For "Post" call from Postman:
 
 ```
-URL : http://localhost:8089/clients/add_clients
-Select JSON and give body like below:
+*URL* -> http://localhost:8089/clients/add_clients
+
+Select *JSON* and give body like below:
 {
 "clientName": "Test-From-Postman"
 }
