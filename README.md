@@ -49,4 +49,6 @@ Select "JSON" and give body like below:
 
 ```
 
+FYI: On executing docker-compose up, pulling the local dynamo db image step takes a bit of time due to the image size! 
+
 ***Note: This Application is also running on my Test server -> http://54.66.87.64:8084***
